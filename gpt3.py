@@ -26,3 +26,4 @@ def gpt3(prompt, engine='davinci', response_length=99,
     new_prompt = prompt + start_text + answer + restart_text
     #new_prompt = prompt
     return response, answer, new_prompt
+    
