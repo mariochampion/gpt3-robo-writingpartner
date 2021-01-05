@@ -26,3 +26,5 @@ tbd
      `export OPENAI_API_KEY="<put your api key here>"`
 
 
+**ToDos** 
+(where do i start ; )
