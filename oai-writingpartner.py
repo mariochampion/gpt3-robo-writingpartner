@@ -48,11 +48,9 @@ def create_filename(seed_filename):
 	# do some lowercase, space, .,,. replace
 	# TODO -- get a lib that handles this
 	filename_base = seed_filename.casefold().replace(" ","_").replace(",","").replace(",","").replace('"','').replace("'","")
-	#print("1 " + thisfilename)
 
 	# take the first FILENAMESEEDCOUNT chars
 	filename_base = filename_base[ 0 : FILENAMESEEDCOUNT ]
-	#print("2 " + thisfilename)	
 
 	return filename_base
 
