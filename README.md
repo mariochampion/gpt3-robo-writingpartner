@@ -2,7 +2,10 @@
 Initial Commit  -- instructions to come
 
 **Intention** 
-tbd
+On the way to understanding how to get code creation out of GPT-3, it seems worth while to play with it in various capacities. 
+And this capacity is the idea generation element, tweaking the `temperature`, `top-p`, `response length`, `frequency penalty` and of course the engine.
+
+(much more to come!)
 
 
 **Requires** 
@@ -11,7 +14,7 @@ tbd
  
     -- This script uses Python 3, and so i didnt test Python 2.7 (which ships with macOS)
     
- 2. An openai API key
+ 2. An OpenAI API key
  
     -- If you don't have one, you can request one at https://beta.openai.com
     
