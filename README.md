@@ -31,4 +31,6 @@ And this capacity is the idea generation element, tweaking the `temperature`, `t
 
 **ToDos** 
 
-(where do i start ; )
+# append to `<name>.log` so one json object with many entries
+# in gpt3.py use configured or passed param values
+# create interactive or run-time passed args for temp, top-p, freq, etc
