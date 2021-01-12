@@ -9,7 +9,7 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 ## tweaked to add raw response and default values, and TODO: configs from file
 
 def gpt3(prompt, engine='davinci', response_length=99,
-         temperature=0.8, top_p=.5, frequency_penalty=0, presence_penalty=0,
+         temperature=0.8, top_p=.5, frequency_penalty=.7, presence_penalty=0,
          start_text='', restart_text='', stop_seq=[]):
     
     response = openai.Completion.create(
