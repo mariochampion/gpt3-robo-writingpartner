@@ -10,6 +10,9 @@ FILENAMESEEDCOUNT = int(32)
 LOGENDING = ".log"
 FILENAMEENDING = ".md"
 THISTIMESTAMP = "-" + time.strftime("%H%M%S")
+DIRROOT = "./"
+DIRDELIM = "/"
+LINEBREAKER = "\n"
 
 ##### call gpt-3 to g3pt (get it, g3t it?)
 def g3pt_idea():
@@ -17,17 +20,21 @@ def g3pt_idea():
 	prompt = input(colors.color.cyan + "give us a prompt:" + colors.color.white)
 	
 	filename_base = create_filename(prompt)
-	filename_story = filename_base + THISTIMESTAMP + FILENAMEENDING
-	filename_log = filename_base + LOGENDING
+	
 	#make a dir to keep writing and .log files in
-	#dir_action(thisfilename)
+	# TODO - make the dir
+	thisdir = DIRROOT + filename_base
+	dir_action(thisdir)
+	
 	#make the file
+	filename_story = DIRROOT + thisdir + DIRDELIM + filename_base + THISTIMESTAMP + FILENAMEENDING
+	filename_log = DIRROOT + thisdir + DIRDELIM + filename_base + LOGENDING
 	header_prompt = "## " + prompt
 	file_action(filename_story, header_prompt, "w", newpgh=True)
 	
 		
 	while True:
-		print(prompt + "\n")
+		print(prompt + LINEBREAKER)
 		prompt += " " + input(colors.color.cyan + 'g3pt more: ' + colors.color.white)
 		bold_prompt = "**" + prompt + "** "
 		file_action(filename_story, bold_prompt, "a")
@@ -51,7 +58,7 @@ def create_filename(seed_filename):
 
 	# take the first FILENAMESEEDCOUNT chars
 	filename_base = filename_base[ 0 : FILENAMESEEDCOUNT ]
-
+	
 	return filename_base
 
 
@@ -60,12 +67,12 @@ def create_filename(seed_filename):
 def file_action(thisfilename, content, mode, newpgh = False):
 	# now make a file
 	# TODO: wrap in some pre/error checking and return a real result
-	print("content: " + content + "/n")
+	# print("content: " + content + LINEBREAKER)
 	
 	with open(thisfilename, mode) as f:
 		f.write(content)
 		if newpgh == True:
-			f.write("\n\n---(next)---\n")
+			f.write(LINEBREAKER + LINEBREAKER + " ---(next)---" + LINEBREAKER)
 		f.close()
 	
 	# give a little feedback
@@ -76,6 +83,18 @@ def file_action(thisfilename, content, mode, newpgh = False):
 		print(colors.color.cyan + "added to file: "  + colors.color.white + thisfilename)	
 
 
+##### make a directory
+def dir_action(path_to_thisdir):
+  
+  #make if needed
+  if not os.path.exists(path_to_thisdir):
+    os.makedirs(path_to_thisdir)
+    print("find or make: " + path_to_thisdir)
+    status = True
+  else:
+    status = False
+  
+  return status
 
 
 
