@@ -5,7 +5,7 @@ import colors as colors
 
 
 #### set some vars, later put in a cfg file
-#prompt = "This robot rides strong yet alone thru the carbonized fields and syn-diamond rails of Unifed Mongolia to"
+#prompt = "This robot rides strong yet alone thru the carbonized fields and synth-diamond rails of Unifed Mongolia to"
 FILENAMESEEDCOUNT = int(32)
 LOGENDING = ".log"
 FILENAMEENDING = ".md"
